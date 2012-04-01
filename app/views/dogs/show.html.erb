@@ -7,7 +7,7 @@
 
 <p>
   <b>Breed:</b>
-  <%= @dog.breed.name %>
+  <%= @dog.breed.try(:name) %>
 </p>
 
 <p>

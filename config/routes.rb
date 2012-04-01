@@ -1,4 +1,6 @@
 K9calendar::Application.routes.draw do
+  resources :bookings
+
   resources :breeds
 
   resources :dogs

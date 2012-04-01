@@ -15,7 +15,7 @@
 <% @dogs.each do |dog| %>
   <tr>
     <td><%= dog.name %></td>
-		<td><%= dog.breed.name %></td>
+		<td><%= dog.breed.try(:name) %></td>
     <td><%= dog.weight %></td>
     <td><%= dog.notes %></td>
     <td><%= dog.jumps_fences %></td>
