@@ -1,4 +1,6 @@
 K9calendar::Application.routes.draw do
+  resources :breeds
+
   resources :dogs
 
   # The priority is based upon order of creation:
