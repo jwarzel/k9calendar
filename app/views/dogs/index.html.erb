@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Breed</th>
     <th>Weight</th>
     <th>Notes</th>
     <th>Jumps fences</th>
@@ -14,6 +15,7 @@
 <% @dogs.each do |dog| %>
   <tr>
     <td><%= dog.name %></td>
+		<td><%= dog.breed.name %></td>
     <td><%= dog.weight %></td>
     <td><%= dog.notes %></td>
     <td><%= dog.jumps_fences %></td>

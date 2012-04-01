@@ -15,6 +15,10 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+	<div>
+		<%= f.label :breed_id, 'Breed' %>
+		<%= f.select("breed_id", Breed.all.collect {|breed| [ breed.name, breed.id ] }, { :include_blank => true }) %>
+	</div>
   <div class="field">
     <%= f.label :weight %><br />
     <%= f.number_field :weight %>
