@@ -5,6 +5,7 @@
   <%= @breed.name %>
 </p>
 
-
-<%= link_to 'Edit', edit_breed_path(@breed) %> |
-<%= link_to 'Back', breeds_path %>
+<div class="form-actions">
+	<%= link_to 'Edit', edit_breed_path(@breed), :class => 'btn' %> |
+	<%= link_to 'Back', breeds_path, :class => 'btn'  %>
+</div>

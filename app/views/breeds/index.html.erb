@@ -1,23 +1,25 @@
 <h1>Listing breeds</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @breeds.each do |breed| %>
-  <tr>
-    <td><%= breed.name %></td>
-    <td><%= link_to 'Show', breed %></td>
-    <td><%= link_to 'Edit', edit_breed_path(breed) %></td>
-    <td><%= link_to 'Destroy', breed, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<table class="table table-striped">
+	 <thead>
+  	<tr>
+	    <th>Name</th>
+	    <th>Actions</th>
+	  </tr>
+  </thead>
+	
+  <tbody>
+		<% @breeds.each do |breed| %>
+		  <tr>
+		    <td><%= breed.name %></td>
+		    <td><%= link_to 'Show', breed %></td>
+		    <td><%= link_to 'Edit', edit_breed_path(breed), :class => 'btn btn-mini' %></td>
+		    <td><%= link_to 'Destroy', breed, :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger'%></td>
+		  </tr>
+		<% end %>
+	<tbody>
 </table>
 
 <br />
 
-<%= link_to 'New Breed', new_breed_path %>
+<%= link_to 'New', new_breed_path, :class => 'btn btn-primary' %>

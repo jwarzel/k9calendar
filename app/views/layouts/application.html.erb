@@ -8,7 +8,30 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#">K9 Calendar</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><%= link_to "Bookings", bookings_path %></li>
+          <li><%= link_to "Dogs", dogs_path %></li>
+          <li><%= link_to "Breeds", breeds_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
+

@@ -1,37 +1,45 @@
-<%= form_for(@dog) do |f| %>
-  <% if @dog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
+<%= form_for @dog, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> /Dog</legend>
 
-      <ul>
-      <% @dog.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'text_field' %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-	<div>
-		<%= f.label :breed_id, 'Breed' %>
-		<%= f.select("breed_id", Breed.all.collect {|breed| [ breed.name, breed.id ] }, { :include_blank => true }) %>
-	</div>
-  <div class="field">
-    <%= f.label :weight %><br />
-    <%= f.number_field :weight %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br />
-    <%= f.text_area :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :jumps_fences %><br />
-    <%= f.check_box :jumps_fences %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="control-group">
+      <%= f.label :breed_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select("breed_id", Breed.all.collect {|breed| [ breed.name, breed.id ] }, { :include_blank => true }) %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :weight, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :weight, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :notes, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :notes, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :jumps_fences, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :jumps_fences, :class => 'check_box' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', dogs_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>

@@ -1,31 +1,26 @@
-<h1>Listing dogs</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Breed</th>
-    <th>Weight</th>
-    <th>Notes</th>
-    <th>Jumps fences</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @dogs.each do |dog| %>
-  <tr>
-    <td><%= dog.name %></td>
-		<td><%= dog.breed.try(:name) %></td>
-    <td><%= dog.weight %></td>
-    <td><%= dog.notes %></td>
-    <td><%= dog.jumps_fences %></td>
-    <td><%= link_to 'Show', dog %></td>
-    <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
-    <td><%= link_to 'Destroy', dog, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<h1>Dogs</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dogs.each do |dog| %>
+      <tr>
+        <td><%= dog.id %></td>
+        <td><%= link_to dog.name, dog_path(dog) %></td>
+        <td><%= dog.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_dog_path(dog), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', dog_path(dog), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Dog', new_dog_path %>
+<%= link_to 'New', new_dog_path, :class => 'btn btn-primary' %>

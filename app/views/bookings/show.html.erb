@@ -1,15 +1,17 @@
-<p id="notice"><%= notice %></p>
+<h1>Booking</h1>
 
 <p>
-  <b>Date:</b>
+  <b>Date</b><br>
   <%= @booking.date %>
 </p>
 
 <p>
-  <b>Dog:</b>
-	<%= @booking.dog.try(:name) %>
+  <b>Dog</b><br>
+  <%= @booking.dog.try(:name) %>
 </p>
 
-
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+<div class="form-actions">
+  <%= link_to 'Back', bookings_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_booking_path(@booking), :class => 'btn' %>
+  <%= link_to 'Delete', booking_path(@booking), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
